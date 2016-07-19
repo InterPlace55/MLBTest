@@ -7,11 +7,13 @@ import nd.java.mlbtest.pages.BasePage;
 public class EbayResultsPage extends BasePage
 {
 
+	//Encapsulation of eBay search results page
 	public EbayResultsPage(WebDriver wd) 
 	{
 		super(wd);
 	}
 
+	//Goes to the numbered result given on the search engine
 	public EbayItemPage grabResultNumber(int i)
 	{
 		waitForAndGetElementByXPath("//*[@id='e1-4']");

@@ -6,11 +6,12 @@ import nd.java.mlbtest.pages.BasePage;
 
 public class GmailEmailPage extends BasePage
 {
-
+	//Encapsulation of Gmail email screen
 	public GmailEmailPage(WebDriver wd) {
 		super(wd);
 	}
 
+	//Verifies that the email and real name are correct and as expected
 	public boolean verifyLoginIsSuccessful(String email, String name)
 	{
 		waitForAndGetElementByXPath("//*[@id='gb']/div[1]/div[1]/div[2]/div[4]/div[1]/a/span").click();

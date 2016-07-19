@@ -8,41 +8,41 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 public class BasePage 
 {
-	private WebDriver driver;
-	private WebDriverWait wait;
+	private WebDriver driver;	//Selenium WebDriver
+	private WebDriverWait wait;	//Selenium WebDriver wait object
 	
+	//Encapsulation of the base web page
 	public BasePage(WebDriver wd)
 	{
 		setDriver(wd);
 		wait = new WebDriverWait(getDriver(), 20);
 	}
 	
+	//Go to the specific URL given
 	public void goTo(String url)
 	{
-		getDriver().get(url);
-		
+		driver.get(url);
 	}
 	
+	//Close the browser window
+	public void closeBrowser()
+	{
+		driver.close();
+	}
+	
+	//Finds an element via its xPath
 	protected WebElement findElementByXPath(String xpath)
 	{
-		return getDriver().findElement(By.xpath(xpath));
+		return driver.findElement(By.xpath(xpath));
 	}
 
+	//Waits for an element given by its xPath and returns it
 	protected WebElement waitForAndGetElementByXPath(String xpath)
 	{
 		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(xpath)));
 	}
 	
-	protected WebElement findElementByClass(String ca)
-	{
-		return getDriver().findElement(By.className(ca));
-	}
-
-	protected WebElement waitForAndGetElementByClass(String ca)
-	{
-		return wait.until(ExpectedConditions.visibilityOfElementLocated(By.className(ca)));
-	}
-
+	//Getter and setter for the driver
 	public WebDriver getDriver() {
 		return driver;
 	}

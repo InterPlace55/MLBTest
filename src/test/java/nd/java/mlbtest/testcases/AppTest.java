@@ -6,7 +6,7 @@ import junit.framework.TestSuite;
 import nd.java.mlbtest.scripts.EbayTest;
 import nd.java.mlbtest.scripts.GmailTest;
 import nd.java.mlbtest.scripts.GmailWrongLoginTest;
-import nd.java.mlbtest.scripts.RunAllScripts;
+import nd.java.mlbtest.scripts.GmailWrongNameTest;
 
 /**
  * Unit test for simple App.
@@ -32,11 +32,11 @@ public class AppTest
         return new TestSuite( AppTest.class );
     }
 
-    /**
-     * Rigourous Test :-)
-     */
     public void testApp()
     {
-    	RunAllScripts.main(null);
+    	assertTrue(GmailTest.executeTest());
+    	assertTrue(GmailWrongLoginTest.executeTest());
+    	assertFalse(GmailWrongNameTest.executeTest());
+    	EbayTest.executeTest();
     }
 }
